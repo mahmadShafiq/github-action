@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 
 EXPOSE 8080
 
-COPY  ./src/main/resources/logback.xml
+COPY  ./src/main/resources/logback.xml ./
 WORKDIR /usr/app
 
 ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
