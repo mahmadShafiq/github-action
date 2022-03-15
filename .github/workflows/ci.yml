@@ -32,6 +32,6 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
         image: ahmadshafiq01/java-demo
-        registry: hub.docker.com
+        registry: https://hub.docker.com/repository/docker/
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
