@@ -32,7 +32,7 @@ pipeline{
             {
                 echo "Executing Gradle"
                 sh './gradlew -v'     
-                echo "Deployning the Version ${Version}"
+                echo "Deployning the Version ${params.Version}"
            
             }
         }
