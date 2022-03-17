@@ -5,6 +5,7 @@ pipeline{
         {
             steps{
                 echo "Hi This is Build Environment.."
+                echo "O Lala O Lala...."
                 }
         }
          stage("Test")
