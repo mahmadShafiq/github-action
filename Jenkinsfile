@@ -1,24 +1,24 @@
 pipeline{
     agent any
     stages{
-         stage("Build")
+         stage("run Frontend")
         {
             steps{
                 echo "Hi This is Build Environment.."
-                echo "O Lala O Lala...."
+                nodejs('NodeJS 10.4.0') {
+                    sh 'yarn install' 
+                }
+
                 }
         }
-         stage("Test")
+         stage("run Backend")
         {
              steps{
-                echo "Hi This is Test Environment.."
-                 echo "Ab Mein Jawa Ho Gayee"
-            }
-        }
-         stage("Deploy")
-        {
-              steps{
-                echo "Hi This is Build Environment.."
+                echo "Executing Gradle"
+                 withGradle(){
+                    sh './gradlew -v'
+                 }
+                 
             }
         }
     }
