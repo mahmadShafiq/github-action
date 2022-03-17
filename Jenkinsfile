@@ -12,25 +12,27 @@ pipeline{
     stages{
          stage("run Frontend")
         {
-            when{
+
+            steps
+            {
+                echo "Hi This is Build Environment.."
+               
+             }
+        }
+         stage("run Backend")
+        {
+             when{
                 expression
                 {
                     params.test
                 }
             }
-            steps
-            {
-                echo "Hi This is Build Environment.."
-                echo "Deployning the Version ${Version}"
-             }
-        }
-         stage("run Backend")
-        {
 
              steps
             {
                 echo "Executing Gradle"
                 sh './gradlew -v'     
+                echo "Deployning the Version ${Version}"
            
             }
         }
