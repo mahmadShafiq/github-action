@@ -3,19 +3,23 @@ pipeline{
     stages{
          stage("run Frontend")
         {
-            steps{
+            steps
+            {
                 echo "Hi This is Build Environment.."
-                nodejs('NodeJS 10.4.0') {
+                nodejs('NodeJS 10.4.0') 
+                {
                     sh 'yarn install' 
                 }
 
-                }
+             }
         }
          stage("run Backend")
         {
-             steps{
+             steps
+            {
                 echo "Executing Gradle"
-                 withGradle(){
+                withGradle()
+                 {
                     sh './gradlew -v'
                  }
                  
