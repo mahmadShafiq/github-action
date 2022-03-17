@@ -1,40 +1,37 @@
+def gv
 pipeline{
     agent any
-    tools 
-      {
-        gradle 'Gradle'    
-      }
     parameters {
-        booleanParam(name:'test',defaultValue:true, description:'Bool Kafara')
-        choice(name:'Version',choices:['1.1','1.2'],description:'Hello There')
+        choice(name:'VERSION',choices:['1.1','1.2','1.3'],description:'')
+        booleanParam:(name:'executeTEST',defaultValue:true,description:'')
     }
-        
+    tools { 
+        gradle 'Gradle'
+    }
     stages{
-         stage("run Frontend")
-        {
+        stage("init")
+        { 
 
-            steps
-            {
-                echo "Hi This is Build Environment.."
-               
-             }
-        }
-         stage("run Backend")
-        {
-             when{
-                expression
-                {
-                    params.test
+            steps{
+                script{
+                    gv.buildApp()
                 }
             }
-
-             steps
-            {
-                echo "Executing Gradle"
-                sh './gradlew -v'     
-                echo "Deployning the Version ${params.Version}"
-           
+        }
+         stage("Backend")
+        {
+            when{
+                expression{
+                   params.executeTEST 
+                }
+            }
+            steps{
+                 script{
+                     gv.deployApp()
+                 }
+      
             }
         }
+
     }
 }
