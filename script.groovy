@@ -4,7 +4,7 @@ def buildApp()
 }
 def deployApp()
 {
-        echo "Hi This is Test Environment.."
+        echo "From Deployment."
         sh './gradle -v'
         echo "Deploying Version ${params.VERSION}"
 }
