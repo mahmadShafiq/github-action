@@ -9,7 +9,16 @@ pipeline{
         gradle 'Gradle'
     }
     stages{
-        stage("init")
+         stage("Intilizae")
+        { 
+
+           steps{
+               script{
+                   gv=load "script.groovy"
+                }
+            }
+        }
+        stage("Build")
         { 
 
             steps{
