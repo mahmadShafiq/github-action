@@ -6,10 +6,6 @@ pipeline{
             steps
             {
                 echo "Hi This is Build Environment.."
-                nodejs('NodeJS 10.4.0') 
-                {
-                    sh 'yarn install' 
-                }
 
              }
         }
