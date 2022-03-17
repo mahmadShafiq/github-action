@@ -6,7 +6,7 @@ pipeline{
       }
     parameters {
         booleanParam(name:'test',defaultValue:true, description:'Bool Kafara')
-        choice(name:'Version',defaultValue:'',choices:['1.1','1.2'],description:'Hello There')
+        choice(name:'Version',choices:['1.1','1.2'],description:'Hello There')
     }
         
     stages{
