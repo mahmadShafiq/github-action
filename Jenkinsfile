@@ -12,6 +12,7 @@ pipeline{
         {
              steps{
                 echo "Hi This is Test Environment.."
+                 echo "Ab Mein Jawa Ho Gayee"
             }
         }
          stage("Deploy")
