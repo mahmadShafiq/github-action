@@ -4,6 +4,10 @@ pipeline{
       {
         gradle 'Gradle'    
       }
+    parameters {
+        booleanParam(name:'test',defaultValue:true,description:'Bool Kafara')
+        choice(name:'Version',choices:['1.1','1.2'],description:'Hello There')
+    }
         
     stages{
          stage("run Frontend")
@@ -16,10 +20,16 @@ pipeline{
         }
          stage("run Backend")
         {
+            when{
+                expression{
+                    params.test
+                }
+            }
              steps
             {
                 echo "Executing Gradle"
-                sh './gradlew -v'          
+                sh './gradlew -v'     
+                echo "Deployning the Version ${Version}"
             }
         }
     }
