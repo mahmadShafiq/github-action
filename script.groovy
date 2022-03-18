@@ -5,7 +5,7 @@ def buildApp()
 def deployApp()
 {
         echo "From Deployment."
-        sh './gradle -v'
+        sh './gradlew -v'
         echo "Deploying Version ${params.VERSION}"
 }
 return this
