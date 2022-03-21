@@ -27,7 +27,7 @@ pipeline{
                 }
             }
         }
-         stage("Backend")
+         stage("Deployment")
         {
             when{
                 expression{
