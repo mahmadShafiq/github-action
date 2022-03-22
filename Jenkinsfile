@@ -15,6 +15,7 @@ pipeline{
            steps{
                script{
                    gv=load "script.groovy"
+                   echo "Here the Script has been loaded From Initial Stage"
                 }
             }
         }
